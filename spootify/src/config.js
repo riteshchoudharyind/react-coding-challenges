@@ -2,7 +2,7 @@ export default {
   api: {
     baseUrl: 'https://api.spotify.com/v1',
     authUrl: 'https://accounts.spotify.com/api/token',
-    clientId: '7e163d336cfb44e1a714afcbe9e47fa7',
-    clientSecret: '58b369dcbff04bb68abbee459485f46f'
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET
   }
 }

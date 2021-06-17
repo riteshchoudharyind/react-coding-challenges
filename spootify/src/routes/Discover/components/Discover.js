@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import DiscoverBlock from './DiscoverBlock/components/DiscoverBlock';
-import SpotifyWebApi from 'spotify-web-api-js';
-import '../styles/_discover.scss';
 import api from '../../../config';
 import axios from 'axios';
+import '../styles/_discover.scss';
 export default class Discover extends Component {
-  accessToken= 'BQDd8_RHG6X5-26JwAoE2dP1iAykG1MuAyeLC62ZX5gbUdIJTyIdwfP2Tc355bhnD0mblT6Gtwn-G3hJTwLXoIk7tehfJtXtMnjg3GAv6E3-dgEa9ALFZ8rYwFgWRYIHahg8muZJTx0utG-AmXbBemSiSbqnHbhiVd1DtEI';
-  spotifyApi = new SpotifyWebApi();
-  getApi = api.baseUrl;
   constructor() {
     super();
-
     this.state = {
       newReleases: [],
       playlists: [],
@@ -20,7 +15,7 @@ export default class Discover extends Component {
   }
 
   componentDidMount(){
-    axios('https://accounts.spotify.com/api/token', {
+    axios(api.api.authUrl, {
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded',
         'Authorization' : 'Basic ' + btoa(api.api.clientId + ':' + api.api.clientSecret)
